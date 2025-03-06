@@ -1,4 +1,4 @@
-export default function Home() {
+function Home() {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="font-bold text-2xl ...">Regular</h2>
@@ -50,3 +50,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
