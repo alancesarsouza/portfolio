@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Code Lint Configuration
+
+- **First, disable all user rules in your VSCode**, then...
+
+1. Install the [ESLint VSCode plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+2. Install the [Prettier VSCode plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+3. Restart VSCode.
+
+- It should now work correctly.
+
 ## Getting Started
 
 First, run the development server:
