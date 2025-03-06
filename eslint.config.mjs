@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname
+  baseDirectory: __dirname,
 });
 
 const eslintConfig = [
@@ -26,8 +26,8 @@ const eslintConfig = [
           allowCallExpression: true,
           allowNew: false,
           allowLiteral: false,
-          allowObject: true
-        }
+          allowObject: true,
+        },
       ],
       'import/order': [
         'error',
@@ -37,12 +37,12 @@ const eslintConfig = [
             { pattern: 'react', group: 'external', position: 'before' },
             { pattern: '@*', group: 'external', position: 'before' },
             { pattern: '@/**', group: 'internal', position: 'before' },
-            { pattern: '*', group: 'internal', position: 'after' }
+            { pattern: '*', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always',
           groups: ['builtin', 'external', 'internal'],
-          pathGroupsExcludedImportTypes: ['react']
-        }
+          pathGroupsExcludedImportTypes: ['react'],
+        },
       ],
       'no-console': ['warn'],
       'no-unneeded-ternary': 'error',
@@ -51,8 +51,8 @@ const eslintConfig = [
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_'
-        }
+          caughtErrorsIgnorePattern: '^_',
+        },
       ],
       'react/jsx-sort-props': [
         1,
@@ -60,18 +60,18 @@ const eslintConfig = [
           callbacksLast: true,
           multiline: 'last',
           reservedFirst: true,
-          shorthandFirst: true
-        }
+          shorthandFirst: true,
+        },
       ],
       'react/self-closing-comp': ['error', { component: true, html: true }],
       'sort-exports/sort-exports': [
         /* https://www.npmjs.com/package/eslint-plugin-sort-exports */
         'error',
-        { sortDir: 'asc' }
-      ]
-    }
+        { sortDir: 'asc' },
+      ],
+    },
   }),
-  eslintConfigPrettier
+  eslintConfigPrettier,
 ];
 
 export default eslintConfig;
