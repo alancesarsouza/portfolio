@@ -1,7 +1,12 @@
 import { DictionaryShape } from './types';
 
 const language: DictionaryShape = {
-  cta: {},
+  cta: {
+    challenges: 'Challenges',
+    technologies: 'Technologies',
+    libraries: 'Libraries',
+    integration: 'Integration',
+  },
   messages: {},
   forms: {},
   text: {

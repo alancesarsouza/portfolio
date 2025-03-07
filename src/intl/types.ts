@@ -1,5 +1,3 @@
-import { PropsWithChildren } from 'react';
-
 import { Languages } from './constants';
 import portuguese from './portuguese';
 
@@ -9,6 +7,6 @@ export type DictionaryShape<T = typeof portuguese> = {
 
 export type LanguagesKeys = Languages;
 
-export type PageWithLanguageProps = PropsWithChildren & {
-  params: { language: LanguagesKeys };
+export type PageWithLanguageProps<T extends Record<string, unknown> = never> = {
+  params: Promise<{ lang: LanguagesKeys } & T>;
 };

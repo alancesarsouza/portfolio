@@ -1,30 +1,35 @@
-import Image from 'next/image';
+import Link from 'next/link';
 
 import { fetchListData } from '@/api';
+import { PageWithLanguageProps } from '@/intl/types';
 import { getTranslation, translateText } from '@/utils/methods';
+import { routes } from '@/utils/routes';
 
-async function PortfolioPage({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+import { Card } from './Card';
+
+async function PortfolioPage({ params }: PageWithLanguageProps) {
   const { language } = await getTranslation(params);
   const { data } = await fetchListData();
 
+  if (!data) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col p-8 w-screen">
-      <ul className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-        {(data || []).map(({ id, title, image, description }: ProjectType) => (
-          <li key={id} className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl">{title}</h3>
-
-            <div className="flex justify-center h-[200] align-center">
-              <Image alt={title} height={200} src={image} width={200} />
-            </div>
-
-            <p className="text-base line-clamp-3">
-              {translateText(language, description)}
-            </p>
+    <div className="flex flex-col p-8 w-screen max-w-[1920px]">
+      <ul className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+        {(data || []).map(({ id, description, title, image }: ProjectType) => (
+          <li key={id}>
+            <Link
+              href={routes.detail({
+                slug: `${id}-${title.replaceAll(' ', '-').toLowerCase()}`,
+                lang: language,
+              })}
+            >
+              <Card image={image} title={title}>
+                {translateText(language, description)}
+              </Card>
+            </Link>
           </li>
         ))}
       </ul>
