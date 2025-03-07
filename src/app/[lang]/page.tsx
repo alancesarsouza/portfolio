@@ -1,14 +1,24 @@
-import { dictionaries } from '@/intl/constants';
-import { LanguagesKeys } from '@/intl/types';
+import Link from 'next/link';
+
+import { getTranslation } from '@/utils/methods';
 
 async function Home({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  const test = await dictionaries[lang as LanguagesKeys]();
+  const { dictionary } = await getTranslation(params);
 
   return (
     <div className="flex flex-col gap-4">
-      <h1>{test.text.hello}</h1>
-      <h2>I&apos;ts is the current lang: {lang}</h2>
+      <h1 className="text-3xl">{dictionary.text.hello}</h1>
+      <ul className="flex gap-4">
+        <li>
+          <Link href="/en-US">English</Link>
+        </li>
+        <li>
+          <Link href="/es">Spanish</Link>
+        </li>
+        <li>
+          <Link href="/pt-BR">Portuguese</Link>
+        </li>
+      </ul>
     </div>
   );
 }

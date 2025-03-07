@@ -4,8 +4,8 @@ import { LanguagesKeys } from '@/intl/types';
 
 import Negotiator from 'negotiator';
 
-const defaultLocale: LanguagesKeys = 'pt-BR';
-const locales: LanguagesKeys[] = ['pt-BR', 'en-US', 'es'];
+const defaultLocale: LanguagesKeys = 'pt';
+const locales: LanguagesKeys[] = ['pt', 'en'];
 const headers = { 'accept-language': `${locales.join(',')};q=0.5` };
 const languages = new Negotiator({ headers }).languages();
 
