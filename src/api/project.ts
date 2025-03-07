@@ -1,5 +1,5 @@
 const apiUrl = process.env.API_URL ?? 'http://localhost:3333/api/v1';
-const baseUrl = `${apiUrl}/project`;
+const baseUrl = `${apiUrl}/projects`;
 
 type ResponseType<T> = Promise<{ data: null | T }>;
 
