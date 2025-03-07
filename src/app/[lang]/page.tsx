@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
+import { PageWithLanguageProps } from '@/intl/types';
 import { getTranslation } from '@/utils/methods';
 
-async function Home({ params }: { params: Promise<{ lang: string }> }) {
+async function Home({ params }: PageWithLanguageProps) {
   const { dictionary } = await getTranslation(params);
 
   return (
