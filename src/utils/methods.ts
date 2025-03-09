@@ -14,17 +14,23 @@ export async function getTranslation(params: Promise<{ lang: LanguagesKeys }>) {
 
 export function translateText<T extends string = LanguagesKeys>(
   key: T,
-  data?: string[]
-) {
-  if (!data) {
-    return '';
+  data?: string | string[] | Record<T, string>
+): string {
+  // prevents data with string or undefined type
+  if (!data || typeof data === 'string') {
+    return data || '';
+  }
+
+  // prevents data with object type
+  if (!Array.isArray(data)) {
+    return data?.[key] || '';
   }
 
   switch (key) {
     case 'en':
-      return data[1];
+      return data?.[1] || '';
 
     default:
-      return data[0];
+      return data?.[0] || '';
   }
 }

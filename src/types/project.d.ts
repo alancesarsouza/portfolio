@@ -2,6 +2,7 @@ type ProjectType = {
   id: number;
   createdAt: Date;
   updatedAt: Date;
+  published: boolean;
   challenges: string[];
   description: string[];
   image: string;
@@ -9,4 +10,5 @@ type ProjectType = {
   libraries: string[];
   technologies: string[];
   title: string;
+  skills: SkillType[];
 };

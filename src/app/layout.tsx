@@ -17,7 +17,11 @@ export const metadata: Metadata = {
 function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} antialiased`}>{children}</body>
+      <body
+        className={`${raleway.variable} antialiased text-base text-gray-800`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

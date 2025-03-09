@@ -5,6 +5,7 @@ import { getTranslation, translateText } from '@/utils/methods';
 
 async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
   const { language, dictionary } = await getTranslation(params);
+
   const { data } = await params.then((param) => {
     const id = (param.slug || '').split('-')[0];
     return fetchDetailData(Number(id));
@@ -15,32 +16,47 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
       <h1 className="font-bold text-3xl">{data?.title}</h1>
       <p>{data?.description}</p>
 
-      <div className="flex md:flex-row sm:flex-col-reverse gap-4">
-        <ul className="flex-1">
-          <li>
-            <h3>Frontend</h3>
-            <p>
-              O desenvolvimento foi feito com React, garantindo uma interface
-              dinâmica e performática
-            </p>
-          </li>
+      <div className="flex md:flex-row sm:flex-col-reverse gap-8 py-4">
+        <ul className="flex flex-col flex-1 gap-2 max-h-96 overflow-y-auto text-gray-600">
+          {data?.skills.map(({ id, label, description }) => (
+            <li
+              key={id}
+              className="flex flex-col gap-2 bg-gray-50 px-3 py-2 rounded-sm"
+            >
+              <h3 className="font-extrabold text-sm">{label}</h3>
+
+              <p className="text-sm">{translateText(language, description)}</p>
+            </li>
+          ))}
         </ul>
 
-        <Tabs className="sm:flex-1 xl:flex-2" defaultValue="challenges">
+        <Tabs className="sm:flex-1 md:flex-2" defaultValue="challenges">
           <TabsList className="w-full">
-            <TabsTrigger className="cursor-pointer" value="challenges">
+            <TabsTrigger
+              className="transition-all cursor-pointer"
+              value="challenges"
+            >
               {dictionary.cta.challenges}
             </TabsTrigger>
 
-            <TabsTrigger className="cursor-pointer" value="technologies">
+            <TabsTrigger
+              className="transition-all cursor-pointer"
+              value="technologies"
+            >
               {dictionary.cta.technologies}
             </TabsTrigger>
 
-            <TabsTrigger className="cursor-pointer" value="libraries">
+            <TabsTrigger
+              className="transition-all cursor-pointer"
+              value="libraries"
+            >
               {dictionary.cta.libraries}
             </TabsTrigger>
 
-            <TabsTrigger className="cursor-pointer" value="integration">
+            <TabsTrigger
+              className="transition-all cursor-pointer"
+              value="integration"
+            >
               {dictionary.cta.integration}
             </TabsTrigger>
           </TabsList>
