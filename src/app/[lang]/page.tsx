@@ -11,13 +11,10 @@ async function Home({ params }: PageWithLanguageProps) {
       <h1 className="text-3xl">{dictionary.text.hello}</h1>
       <ul className="flex gap-4">
         <li>
-          <Link href="/en-US">English</Link>
+          <Link href="/en">English</Link>
         </li>
         <li>
-          <Link href="/es">Spanish</Link>
-        </li>
-        <li>
-          <Link href="/pt-BR">Portuguese</Link>
+          <Link href="/pt">Portuguese</Link>
         </li>
       </ul>
     </div>

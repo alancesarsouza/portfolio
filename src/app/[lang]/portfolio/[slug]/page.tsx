@@ -12,9 +12,10 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
   });
 
   return (
-    <div className="flex flex-col gap-4 sm:p-8 xl:px-16">
+    <div>
       <h1 className="font-bold text-3xl">{data?.title}</h1>
-      <p>{data?.description}</p>
+
+      <p className="text-lg">{translateText(language, data?.description)}</p>
 
       <div className="flex md:flex-row sm:flex-col-reverse gap-8 py-4">
         <ul className="flex flex-col flex-1 gap-2 max-h-96 overflow-y-auto text-gray-600">
