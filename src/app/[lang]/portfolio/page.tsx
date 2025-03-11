@@ -5,7 +5,15 @@ import { PageWithLanguageProps } from '@/intl/types';
 import { getTranslation, translateText } from '@/utils/methods';
 import { routes } from '@/utils/routes';
 
+import { Metadata } from 'next';
+
 import { Card } from './Card';
+
+export const metadata: Metadata = {
+  title: 'Project list | Portfolio',
+  description:
+    'This page lists all the projects I have worked on and their descriptions',
+};
 
 async function PortfolioPage({ params }: PageWithLanguageProps) {
   const { language } = await getTranslation(params);

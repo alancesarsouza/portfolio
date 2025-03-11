@@ -2,6 +2,8 @@
 
 import { themeKey } from '@/utils/keys';
 
+import { Moon, SunDim } from 'lucide-react';
+
 import { setTheme } from '../action/theme';
 
 const html =
@@ -18,13 +20,19 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <button
+    <span
       aria-label="change color theme mode"
       className="cursor-pointer"
+      role="button"
       onClick={toggleTheme}
     >
-      <span className="hidden dark:block text-amber-200">Light</span>
-      <span className="dark:hidden text-blue-600">Dark</span>
-    </button>
+      <span className="hidden dark:block text-yellow-100">
+        <SunDim size={24} />
+      </span>
+
+      <span className="dark:hidden text-blue-900">
+        <Moon size={24} />
+      </span>
+    </span>
   );
 }

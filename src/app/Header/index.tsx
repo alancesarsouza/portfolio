@@ -1,25 +1,42 @@
 import React from 'react';
 
+import { LanguagesKeys } from '@/intl/types';
+
 import { LanguageSelector } from './LanguageSwitcher';
+import Links from './Links';
+import { MobileMenu } from './MobileMenu';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
-export function Header() {
+export interface HeaderProps {
+  language: LanguagesKeys;
+}
+
+// eslint-disable-next-line sort-exports/sort-exports
+export async function Header(props: HeaderProps) {
   return (
-    <header className="flex justify-end sm:justify-between px-14 py-4">
-      <nav className="hidden sm:block">
-        <ul className="flex gap-3 font-extrabold text-subtitle">
-          <li>Inicio</li>
+    <header className="top-0 z-30 sticky flex justify-end md:justify-between bg-gray-100 dark:bg-gray-900 shadow-md">
+      <nav className="hidden md:block px-14 py-4">
+        <ul className="flex gap-8 font-bold text-subtitle">
+          <li className="hover:text-violet-500 transition-colors">
+            <Links.Home language={props.language} />
+          </li>
 
-          <li>Projetos</li>
+          <li className="hover:text-violet-500 transition-colors">
+            <Links.Portfolio language={props.language} />
+          </li>
 
-          <li>Comentarios</li>
+          <li className="hover:text-violet-500 transition-colors">
+            <Links.Comments language={props.language} />
+          </li>
 
-          <li>Github</li>
+          <li className="hover:text-violet-500 transition-colors">
+            <Links.Github language={props.language} />
+          </li>
         </ul>
       </nav>
 
-      <nav className="hidden sm:block">
-        <ul className="flex gap-3 font-extrabold text-subtitle">
+      <nav className="hidden md:block px-14 py-4">
+        <ul className="flex gap-8">
           <li>
             <LanguageSelector />
           </li>
@@ -32,7 +49,15 @@ export function Header() {
         </ul>
       </nav>
 
-      <nav className="sm:hidden block">MENU</nav>
+      <nav className="md:hidden flex items-center gap-8 px-8 py-4">
+        <LanguageSelector />
+
+        <ThemeSwitcher />
+
+        <section className="ml-8">
+          <MobileMenu {...props} />
+        </section>
+      </nav>
     </header>
   );
 }

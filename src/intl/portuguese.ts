@@ -9,6 +9,10 @@ const language = {
   forms: {},
   text: {
     hello: 'Olá mundo!',
+    home: 'Início',
+    portfolio: 'Portfólio',
+    comments: 'Comentários',
+    github: 'Github',
   },
 } as const;
 

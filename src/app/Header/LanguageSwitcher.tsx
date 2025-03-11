@@ -3,35 +3,48 @@
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
+import { Languages } from 'lucide-react';
+
 export function LanguageSelector() {
   const { lang } = useParams();
   const pathname = usePathname();
 
   return (
-    <div>
-      <div>
-        <div>
-          <ul>
-            <li className={`${lang === 'pt' ? 'text-amber-400' : ''}`}>
-              <Link
-                href={pathname.replace(String(lang || ''), 'pt')}
-                locale="pt-BR"
-              >
-                Português
-              </Link>
-            </li>
+    <DropdownMenu>
+      <DropdownMenuTrigger className="outline-offset-0 cursor-pointer">
+        <Languages size={24} />
+      </DropdownMenuTrigger>
 
-            <li className={`${lang === 'en' ? 'text-amber-400' : ''}`}>
-              <Link
-                href={pathname.replace(String(lang || ''), 'en')}
-                locale="en-US"
-              >
-                English
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      <DropdownMenuContent>
+        <DropdownMenuLabel
+          className={`hover:opacity-75 ${lang === 'pt' ? 'text-violet-500' : ''}`}
+        >
+          <Link
+            href={pathname.replace(String(lang || ''), 'pt')}
+            locale="pt-BR"
+          >
+            Português
+          </Link>
+        </DropdownMenuLabel>
+
+        <DropdownMenuLabel
+          className={`hover:opacity-75 ${lang === 'en' ? 'text-violet-500' : ''}`}
+        >
+          <Link
+            href={pathname.replace(String(lang || ''), 'en')}
+            locale="en-US"
+          >
+            English
+          </Link>
+        </DropdownMenuLabel>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

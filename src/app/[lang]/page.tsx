@@ -8,11 +8,13 @@ async function Home({ params }: PageWithLanguageProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-3xl">{dictionary.text.hello}</h1>
+      <h1 className="text-3xl">{dictionary?.text.hello}</h1>
+
       <ul className="flex gap-4">
         <li>
           <Link href="/en">English</Link>
         </li>
+
         <li>
           <Link href="/pt">Portuguese</Link>
         </li>

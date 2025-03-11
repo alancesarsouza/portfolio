@@ -1,12 +1,12 @@
-import { dictionaries } from '@/intl/constants';
+import { getDictionary } from '@/intl/constants';
 import { LanguagesKeys } from '@/intl/types';
 
 export async function getTranslation(params: Promise<{ lang: LanguagesKeys }>) {
   let language: LanguagesKeys = 'pt';
 
-  const dictionary = await params.then(({ lang }) => {
+  const dictionary = await params.then(async ({ lang }) => {
     language = lang;
-    return dictionaries[lang]();
+    return await getDictionary(lang);
   });
 
   return { language, dictionary };

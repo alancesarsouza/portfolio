@@ -11,6 +11,10 @@ const language: DictionaryShape = {
   forms: {},
   text: {
     hello: 'Hello world!',
+    home: 'Home',
+    portfolio: 'Portfolio',
+    comments: 'Comments',
+    github: 'Github',
   },
 } as const;
 
