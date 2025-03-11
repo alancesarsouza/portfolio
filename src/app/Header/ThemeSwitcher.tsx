@@ -26,11 +26,11 @@ export function ThemeSwitcher() {
       role="button"
       onClick={toggleTheme}
     >
-      <span className="hidden dark:block text-yellow-100">
+      <span className="hidden dark:block text-yellow-100 hover:text-yellow-400 transition-colors">
         <SunDim size={24} />
       </span>
 
-      <span className="dark:hidden text-blue-900">
+      <span className="dark:hidden text-blue-900 hover:text-blue-600 transition-colors">
         <Moon size={24} />
       </span>
     </span>

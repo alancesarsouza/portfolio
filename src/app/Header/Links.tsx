@@ -8,7 +8,7 @@ import { HeaderProps } from '.';
 async function Home({ language }: HeaderProps) {
   const dictionary = await getDictionary(language);
   return (
-    <Link href={routes.home({ lang: language })}>{dictionary?.text.home}</Link>
+    <Link href={routes.home({ lang: language })}>{dictionary?.cta.home}</Link>
   );
 }
 
@@ -16,20 +16,20 @@ async function Portfolio({ language }: HeaderProps) {
   const dictionary = await getDictionary(language);
   return (
     <Link href={routes.portfolio({ lang: language })}>
-      {dictionary?.text.portfolio}
+      {dictionary?.cta.portfolio}
     </Link>
   );
 }
 async function Comments({ language }: HeaderProps) {
   const dictionary = await getDictionary(language);
-  return <Link href={routes.comments()}>{dictionary?.text.comments}</Link>;
+  return <Link href={routes.comments()}>{dictionary?.cta.comments}</Link>;
 }
 
 async function Github({ language }: HeaderProps) {
   const dictionary = await getDictionary(language);
   return (
     <Link href={routes.github()} target="_blank">
-      {dictionary?.text.github}
+      {dictionary?.cta.github}
     </Link>
   );
 }

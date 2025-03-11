@@ -16,11 +16,11 @@ import Links from './Links';
 export async function MobileMenu({ language }: HeaderProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="cursor-pointer">
-        <Menu />
+      <DropdownMenuTrigger className="ml-8 cursor-pointer">
+        <Menu size={32} />
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="mx-4 my-2">
+      <DropdownMenuContent>
         <DropdownMenuLabel>
           <Links.Home language={language} />
         </DropdownMenuLabel>

@@ -25,15 +25,17 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
       <p className="text-lg">{translateText(language, data?.description)}</p>
 
       <div className="flex md:flex-row flex-col-reverse gap-8 py-4">
-        <ul className="flex flex-col flex-1 gap-2 max-h-96 overflow-y-auto text-gray-600">
+        <ul className="flex flex-col flex-1 gap-2 max-h-screen lg:max-h-96 overflow-y-auto">
           {data?.skills.map(({ id, label, description }) => (
             <li
               key={id}
-              className="flex flex-col gap-2 bg-gray-50 px-3 py-2 rounded-sm"
+              className="flex flex-col gap-2 bg-indigo-50 dark:bg-indigo-800 px-3 py-2 rounded-sm"
             >
               <h3 className="font-extrabold text-sm">{label}</h3>
 
-              <p className="text-sm">{translateText(language, description)}</p>
+              <p className="text-black dark:text-white text-sm">
+                {translateText(language, description)}
+              </p>
             </li>
           ))}
         </ul>

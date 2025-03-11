@@ -3,18 +3,21 @@ import { DictionaryShape } from './types';
 const language: DictionaryShape = {
   cta: {
     challenges: 'Challenges',
-    technologies: 'Technologies',
-    libraries: 'Libraries',
+    comments: 'Comments',
+    contact: 'Contact',
+    explorer: 'Explorer',
+    github: 'Github',
+    home: 'Home',
     integration: 'Integration',
+    libraries: 'Libraries',
+    mostComment: 'Project most commented',
+    portfolio: 'Portfolio',
+    technologies: 'Technologies',
   },
   messages: {},
   forms: {},
   text: {
     hello: 'Hello world!',
-    home: 'Home',
-    portfolio: 'Portfolio',
-    comments: 'Comments',
-    github: 'Github',
   },
 } as const;
 

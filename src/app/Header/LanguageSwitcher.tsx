@@ -18,7 +18,7 @@ export function LanguageSelector() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-offset-0 cursor-pointer">
+      <DropdownMenuTrigger className="text-gray-700 hover:text-violet-500 dark:text-gray-300 transition-colors cursor-pointer">
         <Languages size={24} />
       </DropdownMenuTrigger>
 

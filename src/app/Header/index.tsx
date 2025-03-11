@@ -14,10 +14,10 @@ export interface HeaderProps {
 // eslint-disable-next-line sort-exports/sort-exports
 export async function Header(props: HeaderProps) {
   return (
-    <div className="top-0 z-30 sticky flex justify-center bg-gray-100 dark:bg-gray-900 shadow-md w-full">
-      <header className="flex justify-end md:justify-between w-full max-w-[1920px]">
+    <div className="top-0 z-30 sticky flex justify-center bg-indigo-100 dark:bg-indigo-950 shadow-md w-full">
+      <header className="flex justify-end md:justify-between w-full max-w-[1920px] text-lg">
         <nav className="hidden md:block px-14 py-4">
-          <ul className="flex gap-8 font-bold text-subtitle">
+          <ul className="flex gap-8 font-bold">
             <li className="hover:text-violet-500 transition-colors">
               <Links.Home language={props.language} />
             </li>
@@ -55,9 +55,7 @@ export async function Header(props: HeaderProps) {
 
           <ThemeSwitcher />
 
-          <section className="ml-8">
-            <MobileMenu {...props} />
-          </section>
+          <MobileMenu {...props} />
         </nav>
       </header>
     </div>

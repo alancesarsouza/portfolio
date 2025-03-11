@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react';
 import { PageWithLanguageProps } from '@/intl/types';
 import { getTranslation } from '@/utils/methods';
 
+import { Footer } from '../Footer';
 import { Header } from '../Header';
 
 export default async function Layout({
@@ -21,7 +22,7 @@ export default async function Layout({
         </section>
       </div>
 
-      {/* <Footer language={language} /> */}
+      <Footer language={language} />
     </div>
   );
 }

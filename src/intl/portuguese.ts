@@ -1,18 +1,21 @@
 const language = {
   cta: {
     challenges: 'Desafios',
-    technologies: 'Tecnologias',
-    libraries: 'Ferramentas',
+    comments: 'Comentários',
+    contact: 'Contato',
+    explorer: 'Explorar',
+    github: 'Github',
+    home: 'Início',
     integration: 'Integração',
+    libraries: 'Ferramentas',
+    mostComment: 'Projecto mais comentado',
+    portfolio: 'Portfólio',
+    technologies: 'Tecnologias',
   },
   messages: {},
   forms: {},
   text: {
     hello: 'Olá mundo!',
-    home: 'Início',
-    portfolio: 'Portfólio',
-    comments: 'Comentários',
-    github: 'Github',
   },
 } as const;
 
