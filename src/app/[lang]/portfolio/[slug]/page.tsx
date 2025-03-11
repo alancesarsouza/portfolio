@@ -19,12 +19,12 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
   });
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <h1 className="font-bold text-3xl">{data?.title}</h1>
 
       <p className="text-lg">{translateText(language, data?.description)}</p>
 
-      <div className="flex md:flex-row md:flex-col-reverse gap-8 py-4">
+      <div className="flex md:flex-row flex-col-reverse gap-8 py-4">
         <ul className="flex flex-col flex-1 gap-2 max-h-96 overflow-y-auto text-gray-600">
           {data?.skills.map(({ id, label, description }) => (
             <li
@@ -38,7 +38,7 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
           ))}
         </ul>
 
-        <Tabs className="md:flex-1 md:flex-2" defaultValue="challenges">
+        <Tabs className="flex-1 md:flex-2" defaultValue="challenges">
           <TabsList className="w-full">
             <TabsTrigger
               className="transition-all cursor-pointer"
@@ -72,12 +72,15 @@ async function DetailPage({ params }: PageWithLanguageProps<{ slug: string }>) {
           <TabsContent value="challenges">
             {translateText(language, data?.challenges)}
           </TabsContent>
+
           <TabsContent value="technologies">
             {translateText(language, data?.technologies)}
           </TabsContent>
+
           <TabsContent value="libraries">
             {translateText(language, data?.libraries)}
           </TabsContent>
+
           <TabsContent value="integration">
             {translateText(language, data?.integration)}
           </TabsContent>

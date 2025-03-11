@@ -15,7 +15,11 @@ export default async function Layout({
     <div className="position-relative">
       <Header language={language} />
 
-      {children}
+      <div className="flex flex-col items-center w-full">
+        <section className="px-1 sm:px-2 md:px-8 lg:px-12 xl:px-16 py-4 max-w-[1920px]">
+          {children}
+        </section>
+      </div>
 
       {/* <Footer language={language} /> */}
     </div>

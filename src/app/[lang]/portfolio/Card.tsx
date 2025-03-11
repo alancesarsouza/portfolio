@@ -15,7 +15,7 @@ export function Card({
         <Image alt={title} height={200} src={image} width={200} />
       </div>
 
-      <p className="text-base line-clamp-4">{children}</p>
+      <p className="text-base line-clamp-6 xl:line-clamp-4">{children}</p>
     </div>
   );
 }

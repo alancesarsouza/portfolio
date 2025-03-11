@@ -24,7 +24,7 @@ async function PortfolioPage({ params }: PageWithLanguageProps) {
   }
 
   return (
-    <ul className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+    <ul className="gap-y-4 grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
       {(data || []).map(({ id, description, title, image }: ProjectType) => (
         <li key={id}>
           <Link
